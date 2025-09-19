@@ -50,13 +50,35 @@ setInterval(function(){
 const maxWidth = 650;
 const maxHeight = 600;
 
-window.addEventListener('DOMContentLoaded', () =>{
-    const button = document.getElementById('yes')
+// Device detection
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 767;
 
-    button.addEventListener('mouseover', () => {
-        button.style.left = Math.floor(Math.random() * (maxWidth + 1)) + 'px';
-        button.style.bottom = Math.floor(Math.random() * (maxHeight + 1)) + 'px';
-    });
+window.addEventListener('DOMContentLoaded', () =>{
+    const button = document.getElementById('yes');
+    const body = document.body;
+    
+    // Apply device-specific classes
+    if (isMobile) {
+        body.classList.add('mobile-device');
+        // On mobile, disable the moving button behavior as it's harder to use
+        // Instead, make the button clickable but show a fun message
+        button.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            // Show a fun message or redirect to yes page
+            alert('Aww, you can\'t escape! 💕 You know you want to say yes! 😉');
+            // Or redirect directly to yes page after a delay
+            setTimeout(() => {
+                window.location.href = "../Page 5/yes.html";
+            }, 1000);
+        });
+    } else {
+        body.classList.add('desktop-device');
+        // Desktop behavior - moving button
+        button.addEventListener('mouseover', () => {
+            button.style.left = Math.floor(Math.random() * (maxWidth + 1)) + 'px';
+            button.style.bottom = Math.floor(Math.random() * (maxHeight + 1)) + 'px';
+        });
+    }
 });
 
 //BG image change while hovering on a button

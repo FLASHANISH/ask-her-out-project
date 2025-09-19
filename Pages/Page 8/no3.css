@@ -121,9 +121,188 @@ body.noo {
     position: fixed;
     top: 95%;
     left: 47%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
 }
 
 a{
     text-decoration: none;
     color: rgb(243, 214, 214);
+}
+
+/* Responsive Design for Final No Page */
+
+/* Desktop Large */
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 3rem;
+        margin: 3rem 2rem 0;
+    }
+    
+    .red {
+        font-size: 3.5rem;
+    }
+    
+    img {
+        height: 550px;
+    }
+    
+    .buttons {
+        gap: 12rem;
+        margin-top: 30rem;
+    }
+    
+    .btn {
+        font-size: 1.4rem;
+        min-width: 140px;
+        padding: 1rem 1.3rem;
+    }
+}
+
+/* Mobile & Tablet Portrait */
+@media screen and (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin: 1rem 0.5rem 0;
+        text-align: center;
+        line-height: 1.3;
+        padding: 0 1rem;
+    }
+    
+    .red {
+        font-size: 2rem;
+        display: inline;
+    }
+    
+    img {
+        height: auto;
+        max-height: 30vh;
+        max-width: 70%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        display: block;
+        margin: 1rem auto;
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        padding: 1rem;
+        position: relative;
+        top: auto;
+    }
+    
+    .btn {
+        font-size: 1.1rem;
+        min-width: 160px;
+        min-height: 48px;
+        padding: 0.8rem 1.2rem;
+        position: relative;
+        top: auto;
+        margin: 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Mobile-specific button movement constraints */
+    #yes {
+        position: relative !important;
+    }
+    
+    .watermark {
+        font-size: 0.8rem;
+        left: 50%;
+        bottom: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+        margin: 0.5rem 0.25rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    .red {
+        font-size: 1.8rem;
+    }
+    
+    img {
+        max-height: 25vh;
+        max-width: 75%;
+    }
+    
+    .buttons {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .btn {
+        font-size: 1rem;
+        min-width: 140px;
+        padding: 0.7rem 1rem;
+    }
+    
+    .watermark {
+        font-size: 0.7rem;
+        bottom: 0.5rem;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    h1 {
+        font-size: 1.2rem;
+        margin: 0.5rem 1rem;
+    }
+    
+    img {
+        max-height: 20vh;
+    }
+    
+    .buttons {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover:before {
+        display: none;
+    }
+    
+    .btn:hover span {
+        display: inline;
+    }
+    
+    .btn:active {
+        transform: scale(0.95);
+    }
 }
